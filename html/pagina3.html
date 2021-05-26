@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar lugar turistico</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+    <script src="/javascript/funciones.js"></script>
+</head>
+<body class="body">
+    <header>
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu">
+            <!--Falta agregar una imagen para el icono de menu de 30x30px-->
+            <img src="" alt="">
+        </label>
+        <nav class="menu">
+            <ul>
+                <!--Falta agregar las direcciones a las diferentes opciones del menu 
+                    teniendo en cuenta que cada una de estas sera una pagina web diferente-->
+                <li><a href="/html/index.html">Inicio</a></li>
+                <li><a href="/html/pagina2.html">Sitio turistico especifico</a></li>
+                <li><a href="/html/pagina3.html">Agregue un lugar turistico</a></li>
+                <li><a href="/html/pagina4.html">Sobre nosotros</a></li>
+                <li><a href="/html/pagina5.html">Contactenos </a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="row">
+        <div class="col-6">
+            <!--Inicio del formulario para agregar lugares turisticos-->
+            <form method="GET">
+                <fieldset>
+                    <legend>Datos del lugar turistico</legend>
+
+                    <div class="col-12">
+                        <label for="nombre">Nombre de lugar</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="pais">Pais</label>
+                        <input type="text" id="pais" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="descripcion">Descripcion</label>
+                        <textarea cols="40" rows="3" spellcheck="true" placeholder="Breve descripcion del lugar" id="descripcion"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="direccion">Direccion</label>
+                        <input type="text" id="direccion" required>
+                    </div>
+
+                    <button class="" type="reset" onclick="aggTurismo()" >Enviar</button>
+
+                </fieldset>
+                
+            </form>
+        </div>
+        <div id="" class="col-6">
+
+        </div>
+    </div>
+</body>
+</html>
