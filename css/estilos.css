@@ -55,7 +55,7 @@
 body{
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #AB7248;
+    background-color: white;
 }
 
 header{
@@ -127,5 +127,11 @@ header label:hover{
 }
 /* Fin CSS del menu */
 
+h1{
+    padding: auto;
+    margin: 0;
+    background-color: aqua;
+    text-align: center;
+}
 
 
