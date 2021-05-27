@@ -111,7 +111,7 @@ header label:hover{
 
     .menu{
         position: absolute;
-        background: #5EE080;
+        background: #F79E5C;
         width: 70%;
         margin-left: -70%;
         transition: all 0.5s;
@@ -129,9 +129,26 @@ header label:hover{
 
 h1{
     padding: auto;
-    margin: 0;
-    background-color: aqua;
+    margin: 1px;
     text-align: center;
+}
+
+
+div fieldset{
+    background-color: rgb(149, 198, 233);
+    padding: auto;
+    margin: 1px;
+}
+
+fieldset fieldset{
+    background-color: rgb(204, 211, 216);
+    padding: auto;
+    margin: 1px;
+}
+
+fieldset legend{
+    padding: auto;
+    margin: 1px;
 }
 
 

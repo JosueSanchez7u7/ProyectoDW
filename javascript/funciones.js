@@ -1,29 +1,13 @@
 //Lista que contiene los lugares turisticos
 var ListTurismo = [];
-//Para agg datos en el div con ID tablaUsers
-//var aggTablaTurismo = document.getElementById("tablaUsers");
 
 //Impresion de datos ingresados por el usuario en el html
-var tablaTurismoUser =  `<table id="tTurismoUser">
-                            <tr>
-                                <th>Nombre del lugar</th><th>Pais</th><th>Descripcion</th><th>Direccion</th>
-                            </tr>
-                            </table>`
+var tablaTurismoUser =  `<fieldset id="tTurismoUser">
+                         </fieldset>`
 
 function verTablaTurismoUser(){
-    //console.log("Entre a la funcion ver tabla turismo user");
-    //console.log(aggTablaTurismo);
     document.getElementById("tablaUsers").innerHTML = tablaTurismoUser; 
-    //aggTablaTurismo.innerHTML = tablaTurismoUser;
     mostrarListUsers();
-}
-
-function LimpiarTabla(){
-    //console.log("Entre a la funcion ver tabla turismo user");
-    //console.log(aggTablaTurismo);
-    document.getElementById("tablaUsers").innerHTML = tablaTurismoUser; 
-    //aggTablaTurismo.innerHTML = tablaTurismoUser;
-    //mostrarListUsers();
 }
 
 //Funcion para agregar lugares turisticos desde la pagina 3
@@ -47,17 +31,16 @@ function mostrarBusqueda(i){
     console.log("Mostrando el resultado de la busqueda");
     var bTurismo = document.getElementById("rBusqueda");
     var List = getListTurismo();
-    bTurismo.innerHTML += `<tr>
-                                <td>${List[i].nombreLugar}</td>
-                                <td>${List[i].pais}</td>
-                                <td>${List[i].descripcion}</td>
-                                <td>$${List[i].direccion}</td>
-                                </tr>`;
+    bTurismo.innerHTML += ` <fieldset>
+                            <legend><h1>${List[i].nombreLugar}</h1></legend>
+                            <p>Pais: ${List[i].pais}</p>
+                            <p>Descripcion: ${List[i].descripcion}</p>
+                            <p>Direccion: ${List[i].direccion}</p>
+                            </fieldset>`;
 }
 
 function buscarTurismo(){
     //Asignando los valores que traen los formularios para realizar la busqueda
-    //var bTurismo = document.getElementById("rBusqueda");
     console.log("Entre a la funcion buscar Turismo");
     var List = getListTurismo();
     var bNombre = document.getElementById("bnombre").value;
@@ -106,12 +89,12 @@ function mostrarListUsers(){
 
     for(i in List){
         if(List[i].tipo == 1){
-            tListUser.innerHTML += `<tr>
-                               <td>${List[i].nombreLugar}</td>
-                               <td>${List[i].pais}</td>
-                               <td>${List[i].descripcion}</td>
-                               <td>${List[i].direccion}</td>
-                               </tr>`;
+            tListUser.innerHTML += `<fieldset>
+                                    <legend><h1>${List[i].nombreLugar}</h1></legend>
+                                    <p>Pais: ${List[i].pais}</p>
+                                    <p>Descripcion: ${List[i].descripcion}</p>
+                                    <p>Direccion: ${List[i].direccion}</p>
+                                    </fieldset>`;
         }
     }
 }
