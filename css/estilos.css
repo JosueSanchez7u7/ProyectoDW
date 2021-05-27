@@ -151,4 +151,31 @@ fieldset legend{
     margin: 1px;
 }
 
+/* Estilos de la ventana flotante */
+.ventana{
+    background:#F79E5C;
+    width: 30%;
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    padding: 33px;
+    min-height: 250px;
+    border-radius: 22px;
+    position: absolute;
+    left: 35%;
+    top: 30%;
+    display: none;
+}
 
+#cerrar{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+div div img{
+    width: 22px;
+    height: 22px;
+}
+/* Fin estilos de la ventana flotante */

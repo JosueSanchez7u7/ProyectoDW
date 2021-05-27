@@ -98,3 +98,27 @@ function mostrarListUsers(){
         }
     }
 }
+
+// Funciones para mostrar  y ocultar la ventana flotante 
+function abrir(){
+    document.getElementById("vent").style.display="block";
+}
+
+function cerrar(){
+    document.getElementById("vent").style.display="none";
+}
+
+function vMostrarBusqueda(i){
+    // Metodo recursivo para mostrar resultados de busqueda
+    console.log("Mostrando el resultado de la busqueda");
+    console.log(i);
+    var vTurismo = document.getElementById("vent");
+    var List = getListTurismo();
+    vTurismo.innerHTML = `  <div id="cerrar"> <a href="javascript:cerrar()"><img src="/img/error.png" alt=""></a> </div>
+                            <fieldset>
+                            <legend><h1>${List[i].nombreLugar}</h1></legend>
+                            <p>Pais: ${List[i].pais}</p>
+                            <p>Descripcion: ${List[i].descripcion}</p>
+                            <p>Direccion: ${List[i].direccion}</p>
+                            </fieldset>`;
+}
