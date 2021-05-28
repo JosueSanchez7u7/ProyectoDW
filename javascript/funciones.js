@@ -1,5 +1,6 @@
 //Lista que contiene los lugares turisticos
 var ListTurismo = [];
+var ListImgTusimo = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.png","14.jpg","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg","23.jpg","24.jpg","25.jpg","26.jpg","27.jpg","28.jpg","29.jpg","30.jpg"];
 
 //Datos pre registrados en la lista de lugares turisticos
 ListTurismo.push({nombreLugar:"Gran Muralla",pais:"China",descripcion:"Esta fortificación de 212 mil km, de la que se conserva aproximadamente 1/3, es la construcción en su tipo más grande del mundo y uno de los iconos turísticos de China.  China",direccion:"Empieza/termina en el Paso Jiayuguan, en la provincia de Gansu y empieza/termina en la ciudad de Qinhuangdao, provincia de Hebei",tipo:"0"});
@@ -39,7 +40,7 @@ var tablaTurismoUser =  `<fieldset id="tTurismoUser">
 
 function verTablaTurismoUser(){
     document.getElementById("tablaUsers").innerHTML = tablaTurismoUser; 
-   mostrarListUsers();
+    mostrarListUsers();
 }
 
 //Funcion para agregar lugares turisticos desde la pagina 3
@@ -62,8 +63,10 @@ function aggTurismo(){
 function mostrarBusqueda(i){
     // Metodo recursivo para mostrar resultados de busqueda
     var bTurismo = document.getElementById("rBusqueda");
+    var imagen = "/img/ListaImg/" + ListImgTusimo[i];
     bTurismo.innerHTML = ` <fieldset>
                             <legend><h1>${ListTurismo[i].nombreLugar}</h1></legend>
+                            <img src="${imagen}" ></a>
                             <p>Pais: ${ListTurismo[i].pais}</p>
                             <p>Descripcion: ${ListTurismo[i].descripcion}</p>
                             <p>Direccion: ${ListTurismo[i].direccion}</p>
@@ -137,11 +140,13 @@ function cerrar(){
 
 function vMostrarBusqueda(i){
     // Metodo recursivo para mostrar resultados de busqueda
-    var vTurismo = document.getElementById("vent");
     var List = getListTurismo();
+    var vTurismo = document.getElementById("vent");
+    var imagen = "/img/ListaImg/" + ListImgTusimo[i];
     vTurismo.innerHTML = `  <div id="cerrar"> <a href="javascript:cerrar()"><img src="/img/error.png" alt=""></a> </div>
                             <fieldset>
                             <legend><h1>${List[i].nombreLugar}</h1></legend>
+                            <img src="${imagen}" ></a>
                             <p>Pais: ${List[i].pais}</p>
                             <p>Descripcion: ${List[i].descripcion}</p>
                             <p>Direccion: ${List[i].direccion}</p>

@@ -178,4 +178,9 @@ div div img{
     width: 22px;
     height: 22px;
 }
+
+fieldset img {
+    width: 300px;
+    height: 200px;
+}
 /* Fin estilos de la ventana flotante */
