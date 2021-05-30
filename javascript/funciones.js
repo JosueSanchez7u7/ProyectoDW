@@ -1,4 +1,5 @@
 //Lista que contiene los lugares turisticos
+var contador = 0;
 var ListTurismo = [];
 var ListImgTusimo = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.png","14.jpg","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg","23.jpg","24.jpg","25.jpg","26.jpg","27.jpg","28.jpg","29.jpg","30.jpg"];
 
@@ -62,9 +63,12 @@ function aggTurismo(){
 
 function mostrarBusqueda(i){
     // Metodo recursivo para mostrar resultados de busqueda
+
+    // Falta depurar esta funcion
     var bTurismo = document.getElementById("rBusqueda");
     var imagen = "/img/ListaImg/" + ListImgTusimo[i];
-    bTurismo.innerHTML = ` <fieldset>
+    bTurismo.innerHTML = `  <div id="cerrar"> <a href="javascript:cerrar()"><img src="/img/error.png" alt=""></a> </div>
+                            <fieldset>
                             <legend><h1>${ListTurismo[i].nombreLugar}</h1></legend>
                             <img src="${imagen}" ></a>
                             <p>Pais: ${ListTurismo[i].pais}</p>
@@ -131,24 +135,31 @@ function mostrarListUsers(){
 
 // Funciones para mostrar  y ocultar la ventana flotante 
 function abrir(){
-    document.getElementById("vent").style.display="block";
+    document.getElementById("rBusqueda").style.display="block";
 }
 
 function cerrar(){
-    document.getElementById("vent").style.display="none";
+    document.getElementById("rBusqueda").style.display="none";
 }
-
-function vMostrarBusqueda(i){
-    // Metodo recursivo para mostrar resultados de busqueda
-    var List = getListTurismo();
-    var vTurismo = document.getElementById("vent");
-    var imagen = "/img/ListaImg/" + ListImgTusimo[i];
-    vTurismo.innerHTML = `  <div id="cerrar"> <a href="javascript:cerrar()"><img src="/img/error.png" alt=""></a> </div>
-                            <fieldset>
-                            <legend><h1>${List[i].nombreLugar}</h1></legend>
-                            <img src="${imagen}" ></a>
-                            <p>Pais: ${List[i].pais}</p>
-                            <p>Descripcion: ${List[i].descripcion}</p>
-                            <p>Direccion: ${List[i].direccion}</p>
-                            </fieldset>`;
+ 
+function vMostrarBusqueda(){
+    if (contador == 0){
+        // Metodo recursivo para mostrar resultados de busqueda
+        var List = getListTurismo();
+        var vTurismo = document.getElementById("vent");
+        var imagen;
+        contador++;
+        for(i in List){
+            if(List[i].tipo == 0){
+                imagen = "/img/ListaImg/" + ListImgTusimo[i];
+                vTurismo.innerHTML += `<div class="card">
+                                            <img src="${imagen}">
+                                            <h4>${List[i].nombreLugar}</h4>
+                                            <p>${List[i].pais}</p>
+                                            <li onclick="mostrarBusqueda(${i})"><a href="javascript:abrir()">Leer más</a></li>
+                                        </div>`;
+            }
+        }
+    }
+    
 }
