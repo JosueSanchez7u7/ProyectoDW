@@ -53,6 +53,12 @@
 
 /* CSS del menu */
 body{
+    /*CSS para imagen de fondo del body*/
+    background: url(/img/fondo\ 2.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* fin de CSS para imagen de fonfo del body*/
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
@@ -60,7 +66,7 @@ body{
 
 header{
     width: 100%;
-    background-color: #F79E5C;
+    background-color: rgb(121, 121, 224);
 }
 
 #btn-menu{
@@ -78,7 +84,7 @@ header label{
     width: 30px;
     height: 30px;
     padding: 10px;
-    border-right: 1px solid #AB7248;
+    border-right: 1px solid #fa87dd;
 }
 
 header label:hover{
