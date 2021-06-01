@@ -2,6 +2,9 @@
 var contador = 0;
 var ListTurismo = [];
 var ListImgTusimo = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.png","14.jpg","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg","23.jpg","24.jpg","25.jpg","26.jpg","27.jpg","28.jpg","29.jpg","30.jpg"];
+//Impresion de datos ingresados por el usuario en el html
+var tablaTurismoUser =  `<fieldset id="tTurismoUser">
+                         </fieldset>`
 
 //Datos pre registrados en la lista de lugares turisticos
 ListTurismo.push({nombreLugar:"Gran Muralla",pais:"China",descripcion:"Esta fortificación de 212 mil km, de la que se conserva aproximadamente 1/3, es la construcción en su tipo más grande del mundo y uno de los iconos turísticos de China.  China",direccion:"Empieza/termina en el Paso Jiayuguan, en la provincia de Gansu y empieza/termina en la ciudad de Qinhuangdao, provincia de Hebei",tipo:"0"});
@@ -35,68 +38,13 @@ ListTurismo.push({nombreLugar:"Cristo Redentor",pais:"Brasil",descripcion:"Con s
 ListTurismo.push({nombreLugar:"Plaza Roja",pais:"Rusia",descripcion:"Es un inmenso espacio urbano de 23.100 m2 en el centro de Moscú, separando la fortaleza del Kremlin del barrio histórico de Kitay-górod.",direccion:"Red Square, Moscow, Rusia, 109012",tipo:"0"});
 ListTurismo.push({nombreLugar:"Taj Mahal",pais:"India",descripcion:"Mumtaz Mahal, cuyo nombre significa la “Elegida de Palacio”, fue la cuarta esposa y mujer preferida del emperador mogol, Sha Jahan. Acompañaba al monarca en sus campañas militares, era su principal confidente y lo apoyó en un conflicto contra su propio padre.",direccion:"Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India",tipo:"0"});
 
-//Impresion de datos ingresados por el usuario en el html
-var tablaTurismoUser =  `<fieldset id="tTurismoUser">
-                         </fieldset>`
-
-function verTablaTurismoUser(){
-    document.getElementById("tablaUsers").innerHTML = tablaTurismoUser; 
-    mostrarListUsers();
+// Funciones para mostrar  y ocultar la ventana flotante 
+function abrir(){
+    document.getElementById("rBusqueda").style.display="block";
 }
 
-//Funcion para agregar lugares turisticos desde la pagina 3
-function aggTurismo(){
-
-    var tnombre = document.getElementById("nombre").value;
-    var tpais = document.getElementById("pais").value;
-    var tdescripcion = document.getElementById("descripcion").value;
-    var tdireccion = document.getElementById("direccion").value;
-    /* La variable tTipo es para identificar los objetos ingresados por los usuarios desde la pagina
-       Tipo = 0 agregado en el codigo , Tipo = 1 agregado por el usuario en la web */
-    var tTipo = 1;
-
-    if(tnombre != "" && tpais != "" && tdescripcion != "" && tdireccion != ""){
-        ListTurismo.push({nombreLugar:tnombre,pais:tpais,descripcion:tdescripcion,direccion:tdireccion,tipo:tTipo});
-        localStorageListTurismo(ListTurismo);
-    }
-}
-
-function mostrarBusqueda(i){
-    // Metodo recursivo para mostrar resultados de busqueda
-
-    // Falta depurar esta funcion
-    var bTurismo = document.getElementById("rBusqueda");
-    var imagen = "/img/ListaImg/" + ListImgTusimo[i];
-    bTurismo.innerHTML = `  <div id="cerrar"> <a href="javascript:cerrar()"><img src="/img/error.png" alt=""></a> </div>
-                            <fieldset>
-                            <legend><h1>${ListTurismo[i].nombreLugar}</h1></legend>
-                            <img src="${imagen}" ></a>
-                            <p>Pais: ${ListTurismo[i].pais}</p>
-                            <p>Descripcion: ${ListTurismo[i].descripcion}</p>
-                            <p>Direccion: ${ListTurismo[i].direccion}</p>
-                            </fieldset>`;
-}
-
-function buscarTurismo(){
-    //Asignando los valores que traen los formularios para realizar la busqueda
-    var bNombre = document.getElementById("bnombre").value;
-    var bPais = document.getElementById("bpais").value;
-    
-    //Validando parametros
-    if(bNombre != "" && bPais != ""){
-        var List = getListTurismo();
-
-        //Recorrido por la lista de lugares turisticos
-        for(i in List){
-            //Condicion de la busqueda
-            if(bNombre == List[i].nombreLugar && bPais == List[i].pais){                    
-                //Se encontro el objeto que cumple con la condicion de busqueda
-                mostrarBusqueda(i);
-            } else{
-                //No se encontro ninguna coincidencia
-            }
-        }
-    }
+function cerrar(){
+    document.getElementById("rBusqueda").style.display="none";
 }
 
 //Funcion para devolver los valores en el almacenamiento local
@@ -109,6 +57,84 @@ function getListTurismo(){
         ListTurismo = JSON.parse(storedList);
     }
     return ListTurismo;
+}
+
+function mostrarBusqueda(i , id){
+    // Metodo recursivo para mostrar resultados de busqueda
+
+    // Falta depurar esta funcion
+    var bTurismo = document.getElementById("rBusqueda");
+    var imagen = "/img/ListaImg/" + ListImgTusimo[i];
+    if(id == 0){
+        bTurismo.innerHTML = `  <div id="cerrar"> <a href="javascript:cerrar()"><img src="/img/error.png" alt=""></a> </div>
+                                <div class="sub-ventana">
+                                <legend><h1>${ListTurismo[i].nombreLugar}</h1></legend>
+                                <img class="img" src="${imagen}" ></a>
+                                <p>Pais: ${ListTurismo[i].pais}</p>
+                                <p>Descripcion: ${ListTurismo[i].descripcion}</p>
+                                <p>Direccion: ${ListTurismo[i].direccion}</p>
+                                </div>
+                                `;
+    } else{
+        bTurismo.innerHTML = `  <fieldset>
+                                <legend><h1>${ListTurismo[i].nombreLugar}</h1></legend>
+                                <img class="img" src="${imagen}" ></a>
+                                <p>Pais: ${ListTurismo[i].pais}</p>
+                                <p>Descripcion: ${ListTurismo[i].descripcion}</p>
+                                <p>Direccion: ${ListTurismo[i].direccion}</p>
+                                </fieldset>`;
+    }
+}
+
+function vMostrarBusqueda(){
+    // Sentencia if para conprobar que la impresion de la lista no se duplique y solamente se muestre una vez
+    if (contador == 0){
+        // Metodo recursivo para mostrar resultados de busqueda
+        var List = getListTurismo();
+        var vTurismo = document.getElementById("vent");
+        var imagen;
+        var id = 0;
+        /*Variable contador aumenta por si se vuelve a llamar a la funcion busqueda esta no se ejecute 
+        y solo muestre una vez la lista, de manera que en la proxima llamada a la funcion la sentencia 
+        if inicial sea falsa por tanto no realizara la impresion de la lista mas de una vez.*/
+        contador++;
+        //Estructura bucle para recorrer todos los objetos de la lista
+        for(i in List){
+            /*Sentencia if para validar que los objetos que va a imprimir la funcion solo sean los
+            Tipo = 0, agregado en el codigo*/
+            if(List[i].tipo == 0){
+                imagen = "/img/ListaImg/" + ListImgTusimo[i];
+                vTurismo.innerHTML += `<div class="card">
+                                            <img src="${imagen}">
+                                            <h4>${List[i].nombreLugar}</h4>
+                                            <p>${List[i].pais}</p>
+                                            <li onclick="mostrarBusqueda(${i},${id})"><a href="javascript:abrir()">Leer más</a></li>
+                                        </div>`;
+            }
+        }
+    }  
+}
+
+function buscarTurismo(){
+    //Asignando los valores que traen los formularios para realizar la busqueda
+    var bNombre = document.getElementById("bnombre").value;
+    var bPais = document.getElementById("bpais").value;
+    
+    //Validando parametros
+    if(bNombre != "" && bPais != ""){
+        var List = getListTurismo();
+        var id = 1;
+        //Recorrido por la lista de lugares turisticos
+        for(i in List){
+            //Condicion de la busqueda
+            if(bNombre == List[i].nombreLugar && bPais == List[i].pais){                    
+                //Se encontro el objeto que cumple con la condicion de busqueda
+                mostrarBusqueda(i , id);
+            } else{
+                //No se encontro ninguna coincidencia
+            }
+        }
+    }
 }
 
 //Funcion para el almacenamiento local
@@ -133,33 +159,24 @@ function mostrarListUsers(){
     }
 }
 
-// Funciones para mostrar  y ocultar la ventana flotante 
-function abrir(){
-    document.getElementById("rBusqueda").style.display="block";
+//Funcion para agregar lugares turisticos desde la pagina 3
+function aggTurismo(){
+
+    var tnombre = document.getElementById("nombre").value;
+    var tpais = document.getElementById("pais").value;
+    var tdescripcion = document.getElementById("descripcion").value;
+    var tdireccion = document.getElementById("direccion").value;
+    /* La variable tTipo es para identificar los objetos ingresados por los usuarios desde la pagina
+       Tipo = 0 agregado en el codigo , Tipo = 1 agregado por el usuario en la web */
+    var tTipo = 1;
+
+    if(tnombre != "" && tpais != "" && tdescripcion != "" && tdireccion != ""){
+        ListTurismo.push({nombreLugar:tnombre,pais:tpais,descripcion:tdescripcion,direccion:tdireccion,tipo:tTipo});
+        localStorageListTurismo(ListTurismo);
+    }
 }
 
-function cerrar(){
-    document.getElementById("rBusqueda").style.display="none";
-}
- 
-function vMostrarBusqueda(){
-    if (contador == 0){
-        // Metodo recursivo para mostrar resultados de busqueda
-        var List = getListTurismo();
-        var vTurismo = document.getElementById("vent");
-        var imagen;
-        contador++;
-        for(i in List){
-            if(List[i].tipo == 0){
-                imagen = "/img/ListaImg/" + ListImgTusimo[i];
-                vTurismo.innerHTML += `<div class="card">
-                                            <img src="${imagen}">
-                                            <h4>${List[i].nombreLugar}</h4>
-                                            <p>${List[i].pais}</p>
-                                            <li onclick="mostrarBusqueda(${i})"><a href="javascript:abrir()">Leer más</a></li>
-                                        </div>`;
-            }
-        }
-    }
-    
+function verTablaTurismoUser(){
+    document.getElementById("tablaUsers").innerHTML = tablaTurismoUser; 
+    mostrarListUsers();
 }

@@ -115,6 +115,23 @@ header label:hover{
     color: #fff;
     text-decoration: none;
 }
+/*Estilo de ventana flotante*/
+.ventana{
+    background:#F79E5C;
+    width: 65%;
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    padding: 33px;
+    min-height: 250px;
+    border-radius: 22px;
+    position: fixed;
+    left: 20%;
+    top: 10%;
+    display: none;
+    transition: all 0.25s;
+}
 
 @media (max-width:768px){
     header label{
@@ -136,6 +153,14 @@ header label:hover{
     #btn-menu:checked ~ .menu{
         margin: 0;
     }
+
+    .ventana{
+        width: 80%;
+        font-size: 15px;
+        left: 10%;
+        top: 5%;
+    }
+
 }
 /* Fin CSS del menu */
 
@@ -174,22 +199,12 @@ fieldset legend{
 }
 
 /* Estilos de la ventana flotante */
-.ventana{
-    background:#F79E5C;
-    width: 65%;
-    color:#fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    text-align: justify;
-    padding: 33px;
-    min-height: 250px;
-    border-radius: 22px;
-    position: absolute;
-    left: auto;
-    top: auto;
-    display: none;
-    transition: all 0.25s;
+.sub-ventana{
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
 }
+
 .ventana:hover{
     transform: translateY(-15px);
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
@@ -206,9 +221,9 @@ div div img{
     height: 22px;
 }
 
-fieldset img {
-    width: 300px;
-    height: 200px;
+.img {
+    width: 328px;
+    height: 224px;
 }
 /* Fin estilos de la ventana flotante */
 
