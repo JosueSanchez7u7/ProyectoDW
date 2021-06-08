@@ -287,3 +287,59 @@ div ul li{
     text-decoration: none;
     color: #3498db;
 }
+
+
+
+/*inicio de css de formulario de contactenoss*/
+.formulario {
+    width: 500px;
+    max-width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    box-shadow: 0 0 20px 1px rgba(189, 122, 122, 0.3);
+    position: relative;
+}
+
+.formulario__titulo{
+    text-align: center;
+    margin-top: 0;
+    color: rgba(0, 0, 0, 1.2);
+}
+
+.formulario__input, .formulario__label, .formulario__submit{
+    display: block;
+    width: 100%;
+    font-size: 1.3em;
+}
+.formulario__input{
+    padding: 20px;
+    border: 1px solid rgb(24, 22, 22);
+    margin-bottom: 40px;
+    background: rgba(175, 53, 53, 0.37);
+}
+.formulario__input:focus{
+    outline: 1px solid rgba(34, 32, 32, 0.7);
+}
+.formulario__input:focus + .formulario__label{
+    margin-top: -135px;
+}
+
+.formulario__label{
+    padding-left: 15px;
+    position: absolute;
+    margin-top: -85px;
+    z-index: -20;
+    color: rbgba(0,0,0,1.5);
+    transition: all 0.2s;
+}
+.formulario__submit{
+    background: rgba(0,0,0, 0.9);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+}
+.fijar{
+    margin-top: -135px;
+}
