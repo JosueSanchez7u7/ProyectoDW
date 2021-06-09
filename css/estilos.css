@@ -227,7 +227,7 @@ div div img{
 }
 /* Fin estilos de la ventana flotante */
 
-/* estilos para los nombre de lugares*/
+/* estilos para los nombre de lugares*/ 
 
 div ul li{
     padding: 8px;
@@ -237,6 +237,7 @@ div ul li{
     font-weight: 700;
     box-shadow: 0px 1px 3px black;
     border-radius: 5px;
+    background-color: wheat;
 }
 /* Estilos de la lista principal */
 .container{
@@ -291,13 +292,14 @@ div ul li{
 
 
 /*inicio de css de formulario de contactenoss*/
+
 .formulario {
     width: 500px;
     max-width: 100%;
     margin: auto;
     margin-top: 30px;
     padding: 20px;
-    box-shadow: 0 0 20px 1px rgba(189, 122, 122, 0.3);
+    box-shadow: 0 0 20px 1px rgba(73, 39, 39, 0.3);
     position: relative;
 }
 
@@ -314,23 +316,22 @@ div ul li{
 }
 .formulario__input{
     padding: 20px;
-    border: 1px solid rgb(24, 22, 22);
+    border: 1px solid rgb(0,0,0,0.5);
     margin-bottom: 40px;
-    background: rgba(175, 53, 53, 0.37);
+    background: rgba(0,0,0, 0.3);
 }
 .formulario__input:focus{
-    outline: 1px solid rgba(34, 32, 32, 0.7);
+    outline: 1px solid rgba(139, 31, 31, 0.7);
 }
 .formulario__input:focus + .formulario__label{
     margin-top: -135px;
 }
-
 .formulario__label{
     padding-left: 15px;
     position: absolute;
     margin-top: -85px;
     z-index: -20;
-    color: rbgba(0,0,0,1.5);
+    color: white(195, 23, 60,);
     transition: all 0.2s;
 }
 .formulario__submit{
@@ -342,4 +343,15 @@ div ul li{
 }
 .fijar{
     margin-top: -135px;
+}
+
+/*pagina 4*/
+div p{
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #A360A1;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0px 1px 3px black;
+    border-radius: 5px;
 }
